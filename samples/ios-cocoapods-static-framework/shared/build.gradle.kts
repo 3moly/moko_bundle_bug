@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
+
 plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
@@ -24,6 +26,10 @@ kotlin {
             export(moko.resources)
             export("dev.icerock.moko:graphics:0.9.0")
         }
+        xcodeConfigurationToNativeBuildType["debug"] = NativeBuildType.DEBUG
+        xcodeConfigurationToNativeBuildType["release"] = NativeBuildType.RELEASE
+        xcodeConfigurationToNativeBuildType["Debug_beta"] = NativeBuildType.DEBUG
+        xcodeConfigurationToNativeBuildType["Release_beta"] = NativeBuildType.RELEASE
     }
 
     sourceSets {
